@@ -1,0 +1,16 @@
+pwd
+cd ~
+ls -latr ; mkdir cs131 ; cd cs131
+git init
+git remote add origin https://github.com/amirrezaarefi/cs131.git
+git config --global user.email "amirreza.arefi@sjsu.edu"
+git config --global user.name "amirrezaarefi"
+mkdir WS1
+cd WS1
+git add .
+history > cmds.log
+ls -latr
+git add cmds.log
+git commit -m "First commit" -a
+git branch
+git push -u origin main
