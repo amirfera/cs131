@@ -3,13 +3,15 @@ mkdir -p ~/cs131/ws2
 cd ~/cs131/ws2
 curl -L -o downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv   "https://raw.githubusercontent.com/wandreopoulos/CS131/main/DATA/downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv"
 curl -L -o downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv   "https://raw.githubusercontent.com/wandreopoulos/CS131/main/DATA/downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv"
+# replies
 grep "replied_to" downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv > replies1.txt
 grep "replied_to" downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv > replies2.txt
-grep "retweeted"   downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv > retweets1.txt
-grep "retweeted"   downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv > retweets2.txt
+# retweets
+grep "retweeted" downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv > retweets1.txt
+grep "retweeted" downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv > retweets2.txt
+# counts
 wc -l -w replies1.txt > counts.txt
 wc -l -w replies2.txt >> counts.txt
 wc -l -w retweets1.txt >> counts.txt
 wc -l -w retweets2.txt >> counts.txt
 nano counts.txt
-history | sed 's/^[[:space:]]*[0-9]\+[[:space:]]*//' > cmds.log
