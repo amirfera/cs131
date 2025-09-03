@@ -1,0 +1,9 @@
+Notes:
+First number = line count
+Second number = word count
+Filename = which file was processed
+
+  15502  530350 replies1.txt
+  14896  620310 replies2.txt
+  178052  4973621 retweets1.txt
+   30  1071 retweets2.txt
