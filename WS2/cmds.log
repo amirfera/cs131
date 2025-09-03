@@ -88,3 +88,25 @@
    88  Filename = which file was processed
    89  {    echo "Notes:";   echo "First number = line count";   echo "Second number = word count";   echo "Filename = which file was processed";   echo "";   cat counts.txt; } > counts_annotated.txt && mv counts_annotated.txt counts.txt
    90  history > cmds.log
+   91  cd ~/cs131
+   92  mkdir -p WS2
+   93  mv ~/cs131/ws2/counts.txt ~/cs131/ws2/cmds.log WS2/
+   94  git add WS2/counts.txt WS2/cmds.log
+   95  git commit -m "WS2: counts and command history"
+   96  git push
+   97  rm -rf ~/cs131/ws2
+   98  rm -rf ~/cs131/WS2
+   99  mkdir -p ~/cs131/ws2
+  100  cd ~/cs131/ws2
+  101  curl -L -o downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv   "https://raw.githubusercontent.com/wandreopoulos/CS131/main/DATA/downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv"
+  102  curl -L -o downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv   "https://raw.githubusercontent.com/wandreopoulos/CS131/main/DATA/downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv"
+  103  grep "replied_to" downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv > replies1.txt
+  104  grep "replied_to" downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv > replies2.txt
+  105  grep "retweeted" downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv > retweets1.txt
+  106  grep "retweeted" downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv > retweets2.txt
+  107  wc -l -w replies1.txt > counts.txt
+  108  wc -l -w replies2.txt >> counts.txt
+  109  wc -l -w retweets1.txt >> counts.txt
+  110  wc -l -w retweets2.txt >> counts.txt
+  111  nano counts.txt
+  112  history > cmds.log
