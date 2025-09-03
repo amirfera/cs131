@@ -1,112 +1,15 @@
-    1  exit
-    2  pwd
-    3  cd ~
-    4  ls -latr ; mkdir cs131 ; cd cs131
-    5  git init
-    6  git remote add origin https://github.com/amirrezaarefi/cs131.git
-    7  git config --global user.email "amirreza.arefi@sjsu.edu"
-    8  git config --global user.name "amirrezaarefi"
-    9  mkdir WS1
-   10  cd WS1
-   11  git add .
-   12  history > cmds.log
-   13  ls -latr
-   14  git add cmds.log
-   15  git commit -m "First commit"
-   16  git branch
-   17  git push -u origin main
-   18  cd ~/cs131/WS1
-   19  cat > cmds.log << 'EOF'
-   20  pwd
-   21  cd ~
-   22  ls -latr ; mkdir cs131 ; cd cs131
-   23  git init
-   24  git remote add origin https://github.com/amirrezaarefi/cs131.git
-   25  git config --global user.email "amirreza.arefi@sjsu.edu"
-   26  git config --global user.name "amirrezaarefi"
-   27  mkdir WS1
-   28  cd WS1
-   29  git add .
-   30  history > cmds.log
-   31  ls -latr
-   32  git add cmds.log
-   33  git commit -m "First commit" -a
-   34  git branch
-   35  git push -u origin main
-   36  EOF
-   37  git add cmds.log
-   38  git commit -m "Clean cmds.log for WS1"
-   39  git push -u origin main --force
-   40  cat cmds.log
-   41  git reset HEAD~1
-   42  git add cmds.log
-   43  git commit -m "First commit"
-   44  git push -u origin main --force
-   45  git log --oneline
-   46  git checkout --orphan temp-branch
-   47  git add .
-   48  git commit -m "First commit"
-   49  git branch -M main
-   50  git push -u origin main --force
-   51  cd ~/cs131
-   52  echo "# CS131  
-   53  This repo contains my Worksheets and assignments for CS131." > README.md
-   54  git add README.md
-   55  git commit -m "Add README with repo description"
-   56  git push origin main
-   57  cd ~/cs131
-   58  echo "# CS131  
-   59  This repo contains my Worksheets and assignments for CS131." > README.md
-   60  git add README.md
-   61  git commit -m "README commit"
-   62  git push origin main
-   63  cd ~/cs131
-   64  git commit --amend -m "README commit"
-   65  git push origin main --force
-   66  mkdir -p ~/cs131/ws2
-   67  cp /mnt/scratch/CS131_billa/FA25/DATA/downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv ~/cs131/ws2/
-   68  cp /mnt/scratch/CS131_billa/FA25/DATA/downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv ~/cs131/ws2/
-   69  ls /mnt/scratch/CS131_billa/FA25/
-   70  ls /mnt/scratch/CS131_billa/FA25/DATA/
-   71  DATA/downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv
-   72  mkdir -p ~/cs131/ws2
-   73  cd ~/cs131/ws2
-   74  curl -L -o downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv   "https://raw.githubusercontent.com/wandreopoulos/CS131/main/DATA/downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv"
-   75  curl -L -o downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv   "https://raw.githubusercontent.com/wandreopoulos/CS131/main/DATA/downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv"
-   76  # replies
-   77  grep "replied_to" downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv > replies1.txt
-   78  grep "replied_to" downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv > replies2.txt
-   79  # retweets
-   80  grep "retweeted" downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv > retweets1.txt
-   81  grep "retweeted" downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv > retweets2.txt
-   82  wc -l -w replies1.txt > counts.txt
-   83  wc -l -w replies2.txt >> counts.txt
-   84  wc -l -w retweets1.txt >> counts.txt
-   85  wc -l -w retweets2.txt >> counts.txt
-   86  First number = line count
-   87  Second number = word count
-   88  Filename = which file was processed
-   89  {    echo "Notes:";   echo "First number = line count";   echo "Second number = word count";   echo "Filename = which file was processed";   echo "";   cat counts.txt; } > counts_annotated.txt && mv counts_annotated.txt counts.txt
-   90  history > cmds.log
-   91  cd ~/cs131
-   92  mkdir -p WS2
-   93  mv ~/cs131/ws2/counts.txt ~/cs131/ws2/cmds.log WS2/
-   94  git add WS2/counts.txt WS2/cmds.log
-   95  git commit -m "WS2: counts and command history"
-   96  git push
-   97  rm -rf ~/cs131/ws2
-   98  rm -rf ~/cs131/WS2
-   99  mkdir -p ~/cs131/ws2
-  100  cd ~/cs131/ws2
-  101  curl -L -o downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv   "https://raw.githubusercontent.com/wandreopoulos/CS131/main/DATA/downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv"
-  102  curl -L -o downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv   "https://raw.githubusercontent.com/wandreopoulos/CS131/main/DATA/downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv"
-  103  grep "replied_to" downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv > replies1.txt
-  104  grep "replied_to" downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv > replies2.txt
-  105  grep "retweeted" downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv > retweets1.txt
-  106  grep "retweeted" downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv > retweets2.txt
-  107  wc -l -w replies1.txt > counts.txt
-  108  wc -l -w replies2.txt >> counts.txt
-  109  wc -l -w retweets1.txt >> counts.txt
-  110  wc -l -w retweets2.txt >> counts.txt
-  111  nano counts.txt
-  112  history > cmds.log
+history -w
+mkdir -p ~/cs131/ws2
+cd ~/cs131/ws2
+curl -L -o downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv   "https://raw.githubusercontent.com/wandreopoulos/CS131/main/DATA/downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv"
+curl -L -o downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv   "https://raw.githubusercontent.com/wandreopoulos/CS131/main/DATA/downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv"
+grep "replied_to" downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv > replies1.txt
+grep "replied_to" downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv > replies2.txt
+grep "retweeted"   downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv > retweets1.txt
+grep "retweeted"   downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv > retweets2.txt
+wc -l -w replies1.txt > counts.txt
+wc -l -w replies2.txt >> counts.txt
+wc -l -w retweets1.txt >> counts.txt
+wc -l -w retweets2.txt >> counts.txt
+nano counts.txt
+history | sed 's/^[[:space:]]*[0-9]\+[[:space:]]*//' > cmds.log
