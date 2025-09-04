@@ -1,4 +1,3 @@
-history -w
 mkdir -p ~/cs131/ws2
 cd ~/cs131/ws2
 curl -L -o downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv   "https://raw.githubusercontent.com/wandreopoulos/CS131/main/DATA/downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv"
