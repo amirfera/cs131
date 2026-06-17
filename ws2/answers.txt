@@ -1,0 +1,20 @@
+Q1: git add notes.md ; git commit -m "ws2: add task line"
+Q2: git log --oneline -3
+Q3: git log --oneline -3 ; bad commit hash=397dcb4
+Q4: git revert HEAD --no-edit ; grep WRONG notes.md
+Q5: git rm --cached bigdata.bin ; echo "bigdata.bin" >> .gitignore ; git add .gitignore ; git commit --amend --no-edit ; rm bigdata.bin ; git push
+Q6: git switch -c feature-summary
+Q7: git add summary.md ; git commit -m "ws2: add summary"
+Q8: git diff main..feature-summary --name-only
+Q9: git switch main ; git merge feature-summary ; ls summary.md
+Q10: git branch -d feature-summary
+Q11: git merge conflict-branch ; conflicted file=summary.md
+Q12: git diff --name-only --diff-filter=U
+Q13: edited summary.md to remove conflict markers and keep both updates
+Q14: git add summary.md ; git commit --no-edit ; git log --oneline -5
+Q11: git merge conflict-branch ; conflicted file=summary.md
+Q12: git diff --name-only --diff-filter=U
+Q13: edited summary.md to remove conflict markers and keep both updates
+Q14: git add summary.md ; git commit --no-edit ; git log --oneline -5
+Q15: git fetch origin ; git log HEAD..origin/main --oneline
+Q16: git fetch downloads remote changes without merging; git pull performs fetch and then merges the changes into the current branch.
