@@ -1,0 +1,17 @@
+    1  mkdir -p ~/cs131/ws2
+    2  cd ~/cs131/ws2
+    3  curl -L -o downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv "https://raw.githubusercontent.com/wandreopoulos/CS131/main/DATA/downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv"
+    4  curl -L -o downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv "https://raw.githubusercontent.com/wandreopoulos/CS131/main/DATA/downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv"
+    5  # replies
+    6  grep "replied_to" downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv > replies1.txt
+    7  grep "replied_to" downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv > replies2.txt
+    8  # retweets
+    9  grep "retweeted" downloaded_tweets_extend_nolf.ASCII.CLEAN.tsv > retweets1.txt
+   10  grep "retweeted" downloaded_tweets_extend_original_ids_nolf.ASCII.CLEAN.tsv > retweets2.txt
+   11  # counts
+   12  wc -l -w replies1.txt > counts.txt
+   13  wc -l -w replies2.txt >> counts.txt
+   14  wc -l -w retweets1.txt >> counts.txt
+   15  wc -l -w retweets2.txt >> counts.txt
+   16  nano counts.txt
+   17  history > cmds.log
