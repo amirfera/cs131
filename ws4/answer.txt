@@ -1,0 +1,35 @@
+T1
+
+https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c#file-the-ultimate-bad-ass-bashrc-file-L229
+
+sedit()
+
+This function edits files with administrator privileges. It uses if/elif conditions to check whether jpico, nano, or pico is installed by using the `type -t` command. It opens the file with the first available editor using `sudo`. If none of those editors are available, it falls back to `sudo vim`.
+
+https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c#file-the-ultimate-bad-ass-bashrc-file-L247
+
+extract()
+
+This function extracts archive files. It first checks whether each argument is a valid file using `if [ -f $archive ]`. It then uses a `case` statement to determine the archive type and executes the appropriate command, such as `tar`, `gunzip`, `bunzip2`, `unzip`, or `7z`, to extract the file.
+
+T2
+
+https://github.com/amirfera/cs131/blob/f958671e3ead0200feed37400edade9193f41637/ws4/.bashrc#L8
+
+alias cs131='cd ~/cs131'
+
+This alias quickly changes the current directory to my CS131 repository, making it easier to access my coursework from anywhere in the terminal.
+
+https://github.com/amirfera/cs131/blob/f958671e3ead0200feed37400edade9193f41637/ws4/.bashrc#L11-L14
+
+mkcd()
+
+This shell function creates a new directory using `mkdir -p` and immediately changes into it using `cd`. It combines two common commands into one, making it faster to start working in a new directory.
+
+https://github.com/amirfera/cs131/blob/f958671e3ead0200feed37400edade9193f41637/ws4/.bashrc#L17-L19
+
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
+
+This if statement checks whether the `.bash_aliases` file exists. If it does, it loads the aliases into the current shell using `source`. This prevents errors if the file is missing while allowing additional aliases to be stored separately.

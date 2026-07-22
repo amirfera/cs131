@@ -1,0 +1,24 @@
+A1: ls -l > listing.txt ; date >> listing.txt
+A2: ls /nonexistent_dir 2> errors.txt ; stderr is file descriptor 2
+A3: ls /nonexistent_dir /etc > output.txt 2> errors.txt
+A4: ls /nonexistent_dir /etc &> combined.txt
+A5: ls /nonexistent_dir /etc 2>/dev/null ; terminal shows only /etc output because stderr is discarded to /dev/null, the null device
+A6: sort fruits.txt | uniq
+A7: sort fruits.txt | uniq -c | sort -nr
+A8: grep ERROR server.log | wc -l
+A9: grep ERROR server.log > errors_only.txt
+A10: grep -oE '^[A-Z]+' server.log | sort | uniq -c | sort -nr
+A11: grep -oE '"state":"[A-Z]{2}"' /data/yelp/yelp_academic_dataset_business.json | sort | uniq -c | sort -nr | head -5
+B1: id ; uid=1043 gid=1043 groups=ishigaki-cs10,video,docker,render ; uid identifies the user account, gid identifies the primary group
+B2: ls -l fruits.txt ; permissions=-rw-rw-r-- ; owner=rw- (read/write) ; group=rw- (read/write) ; other=r-- (read only)
+B3: umask=0002 ; echo "top secret" > secret.txt ; ls -l secret.txt ; new file permissions=-rw-rw-r--
+B4: chmod 000 secret.txt ; cat secret.txt (Permission denied) ; chmod u+rw secret.txt
+B5: chmod 640 fruits.txt ; octal=640
+B6: find . -type f -user "$USER" -perm -u=w
+C1: bash long.sh > log.txt & ; tail log.txt ; PID=837759
+C2: jobs ; shows job number, status, and command
+C3: fg ; Ctrl-Z ; jobs ; state=Stopped
+C4: bg %1 ; jobs ; state=Running
+C5: kill %1 ; jobs ; default signal is SIGTERM
+C6: bash long.sh > log.txt & ; disown %2 ; jobs ; ps -p 838221
+C7: disown removes the job from the shell job table so the shell does not send it SIGHUP when the terminal closes, unlike a regular background job.
